@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movies List</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Kumbh+Sans">
+    
+</head>
+
+<body>
+    <h1 class="title-h1">Filmes Populares</h1>
+    <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Digite algum filme para pesquisar...">
+        <img class="lupa" src="imgs/search-icon.svg">
+    </div>
+    <span class="checkbox-wrapper" id="filter-checkbox">
+        <input type="checkbox" placeholder="" class="checkbox-input">
+        <label for="filter-checkbox">Mostrar meus filmes favoritos apenas</label>
+    </span>
+
+    <div class="movies-wrapper">
+
+        <div class="movie-container" id="movie">
+            <div class="img-container">
+                <img src="imgs/movie-1.png" id="movie-img">
+            </div>
+    
+            <div class="info-wrapper">
+                <p id="movie-title">Avengers Endgame (2019)</p>
+                <div class="stats-wrapper">
+                    <div>
+                        <span class="star-container">
+                            <img src="imgs/Star.svg" id="star-icon"><p>9.2</p> 
+                        </span>
+                    </div>
+                
+                    <div >
+                        <span class="heart-container">
+                            <img src="imgs/heart-filled.svg" id="heart-icon">Favoritar
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="description-wrapper" >
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+            </div>
+            
+        </div>
+
+        
+    </div>
+
+    
+
+    <script src="script.js" defer></script>
+</body>
+</html>

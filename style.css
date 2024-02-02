@@ -1,0 +1,213 @@
+:root {
+    --cor-fundo: #17162E;
+    --cor-fonte: #FFF;
+    
+  }
+
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+}
+
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-fonte);  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    font-family: "Kumbh Sans";
+}
+
+.title-h1 {
+    font-size: 2em;
+    color: #FFF;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+/* Search Field*/
+
+.search-wrapper {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    padding: 1.5em;
+    margin-bottom: 1.76em;
+    border-radius: 8px;
+    
+}
+
+.search-wrapper input[type="text"] {
+    padding: 10px;
+    width: 39.625em;
+    height: 0.35em;
+    border-radius: 8px;
+    background-color: transparent;
+    
+    outline: none; /* Remove a borda de foco */
+    
+    border: none;
+    
+}
+
+.search-input::placeholder {
+    
+    font-family: "Kumbh Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.search-wrapper img {
+    cursor: pointer;
+}
+
+.search-input {
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+
+ /* Checkbox Input*/
+
+/**/
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+    align-items: center;
+    margin: 0.2em 0em 4em;
+}
+
+/*Box stylization*/
+.checkbox-input {
+    -webkit-appearance: none;
+	border:  2px solid #706EA8;
+	padding: 9px;
+	border-radius: 4px;
+	margin: 0px;
+	position: relative;
+    cursor: pointer;
+}
+
+/*Box stylization when Checked*/
+.checkbox-input:checked {
+    background: #706EA8;
+    
+	border:  2px solid #706EA8;
+	color: #99a1a7;
+}
+
+/*Check mark stylization*/
+.checkbox-input:checked:after {
+    background: #706EA8;
+    content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #FFF;
+}
+
+/*Movies main container - it's defines how the movies divs are displayed */
+.movies-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5em;
+    margin-bottom: 4em;
+
+}
+
+/*Movie div - defines how the informations about the movies are 
+displayed (img, movie title, description, etc). Every style bellow 
+this comment it's connected to the Movie Div and it's elements. */
+.movie-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /* border: 1px solid #FFF; */
+    border-radius: 3px;
+
+    background-color: #1D1C3B;
+    width: 76.5em;
+    height: 12.5625em;
+
+    box-shadow: 0.334px 0.249px 2.422px 0px rgba(0, 0, 0, 0.03), 1.437px 1.074px 4.567px 0px rgba(0, 0, 0, 0.05), 3.463px 2.589px 7.638px 0px rgba(0, 0, 0, 0.06), 6.568px 4.91px 12.837px 0px rgba(0, 0, 0, 0.08), 10.903px 8.151px 21.37px 0px rgba(0, 0, 0, 0.09), 16.625px 12.428px 34.439px 0px rgba(0, 0, 0, 0.10), 23.885px 17.855px 53.248px 0px rgba(0, 0, 0, 0.12), 32.839px 24.548px 79px 0px rgba(0, 0, 0, 0.15);
+
+    gap: 4em;
+}
+
+.img-container {
+    align-items: center;
+    margin-top: 1.8125em ;
+    margin-left: 2.4375em;
+}
+
+.info-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-wrapper p {
+    margin-bottom: 1em;
+}
+
+.stats-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+
+}
+
+.star-container {
+    display: flex;
+    gap: 0.5em;
+}
+
+.star-container p {
+    margin-top: 1.2em;
+}
+
+.heart-container {
+    display: flex;
+    gap: 0.5em;
+
+    margin-left: 1em;
+}
+
+.description-wrapper {
+    width: 592px;
+
+    color: #ACACAC;
+
+    font-family: "Kumbh Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 177.023%; /* 31.864px */
+}
