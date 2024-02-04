@@ -171,6 +171,7 @@ this comment it's connected to the Movie Div and it's elements. */
 .info-wrapper {
     display: flex;
     flex-direction: column;
+    width: max(11.875em);
 }
 
 .info-wrapper p {
@@ -180,8 +181,7 @@ this comment it's connected to the Movie Div and it's elements. */
 .stats-wrapper {
     display: flex;
     align-items: center;
-    gap: 1.5em;
-
+    gap: min(1.5em) max(2em);
 }
 
 .star-container {

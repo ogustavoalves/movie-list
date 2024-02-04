@@ -10,7 +10,7 @@ function moviesRender(moviesArr) {
 
         element.querySelector(".img-container img").src = movie.imagem;
         element.querySelector(".info-wrapper #movie-title").textContent = `${movie.title} (${movie.year})`;
-        element.querySelector(".stats-wrapper .star-container p").textContent = movie.rating;
+        element.querySelector(".stats-wrapper .star-container p").textContent = movie.rating.toFixed(1);
         element.querySelector(".description-wrapper p").textContent = movie.description;
         
         movieContainer.appendChild(element);
