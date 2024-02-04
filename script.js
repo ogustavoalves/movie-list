@@ -1,5 +1,8 @@
 
 const movieModel = document.querySelector(".movies-wrapper .movie-container")
+const search_btn  = document.querySelector(".search-wrapper .lupa"); //magnifying glass image
+const heart_icon = document.querySelector(".heart-container #heart-icon"); //heart image
+
 
 function moviesRender(moviesArr) {
     const movieContainer = document.querySelector(".movies-wrapper");
@@ -42,3 +45,29 @@ const moviesArr = [
 ]
 
 moviesRender(moviesArr)
+
+//search button functionality
+search_btn.addEventListener('click', () => {
+    const search_string = document.querySelector(".search-wrapper .search-input").value;
+    console.log(search_string);
+})
+
+
+//
+// let isFav = true;
+
+// heart_icon.addEventListener('click', () => {
+//     console.log('click')
+// })
+
+// function changeFav (isFav) {
+
+//     if(isFav==true) {
+//         heart_icon.setAttribute(`.imgs/heart-filled.svg`)
+//     } else {
+//         heart_icon.setAttribute(`.imgs/heart-not-filled.svg`)
+//     }
+// }
+
+
+

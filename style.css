@@ -182,6 +182,7 @@ this comment it's connected to the Movie Div and it's elements. */
     display: flex;
     align-items: center;
     gap: min(1.5em) max(2em);
+    justify-content: space-around;
 }
 
 .star-container {
@@ -198,6 +199,10 @@ this comment it's connected to the Movie Div and it's elements. */
     gap: 0.5em;
 
     margin-left: 1em;
+}
+
+.heart-container img {
+    cursor: pointer;
 }
 
 .description-wrapper {
