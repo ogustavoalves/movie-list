@@ -67,13 +67,11 @@ body {
     background-color: transparent;
     
     outline: none; /* Remove a borda de foco */
-    
     border: none;
     
 }
 
 .search-input::placeholder {
-    
     font-family: "Kumbh Sans";
     font-size: 18px;
     font-style: normal;
@@ -139,7 +137,7 @@ body {
     flex-direction: column;
     gap: 3.5em;
     margin-bottom: 4em;
-
+    position: relative;
 }
 
 /*Movie div - defines how the informations about the movies are 
@@ -155,7 +153,7 @@ this comment it's connected to the Movie Div and it's elements. */
 
     background-color: #1D1C3B;
     width: 76.5em;
-    height: 12.5625em;
+    height: 50.5625em;
 
     box-shadow: 0.334px 0.249px 2.422px 0px rgba(0, 0, 0, 0.03), 1.437px 1.074px 4.567px 0px rgba(0, 0, 0, 0.05), 3.463px 2.589px 7.638px 0px rgba(0, 0, 0, 0.06), 6.568px 4.91px 12.837px 0px rgba(0, 0, 0, 0.08), 10.903px 8.151px 21.37px 0px rgba(0, 0, 0, 0.09), 16.625px 12.428px 34.439px 0px rgba(0, 0, 0, 0.10), 23.885px 17.855px 53.248px 0px rgba(0, 0, 0, 0.12), 32.839px 24.548px 79px 0px rgba(0, 0, 0, 0.15);
 
@@ -164,25 +162,35 @@ this comment it's connected to the Movie Div and it's elements. */
 
 .img-container {
     align-items: center;
-    margin-top: 1.8125em ;
-    margin-left: 2.4375em;
+    padding: 1em;
 }
 
 .info-wrapper {
     display: flex;
     flex-direction: column;
     width: max(11.875em);
+    
+}
+
+.info-wrapper h1 {
+    font-size: 1.3em;
+    width: 15em;
 }
 
 .info-wrapper p {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+.title-container {
+    width: 10em;
 }
 
 .stats-wrapper {
     display: flex;
-    align-items: center;
     gap: min(1.5em) max(2em);
-    justify-content: space-around;
+    
+    align-items: flex-end;
 }
 
 .star-container {
@@ -191,11 +199,13 @@ this comment it's connected to the Movie Div and it's elements. */
 }
 
 .star-container p {
-    margin-top: 1.2em;
+    margin-top: 0.6em;
 }
 
 .heart-container {
     display: flex;
+    align-items:flex-start ;
+    justify-content: center ;
     gap: 0.5em;
 
     margin-left: 1em;

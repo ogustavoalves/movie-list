@@ -25,7 +25,7 @@ const moviesArr = [
         imagem: 'imgs/batman.png',
         title: 'Batman',
         year: '2022',
-        rating: 11.2,
+        rating: 10,
         description: 'Movie description bla bla bla...',
     },
     {
@@ -47,27 +47,18 @@ const moviesArr = [
 moviesRender(moviesArr)
 
 //search button functionality
-search_btn.addEventListener('click', () => {
-    const search_string = document.querySelector(".search-wrapper .search-input").value;
-    console.log(search_string);
+search_btn.addEventListener('click', async () => {
+    try {
+        const inputElement = document.querySelector(".search-wrapper .search-input")
+        const search_string = inputElement.value;
+        
+        await console.log(search_string);
+        inputElement.value = "";
+    } catch (error) {
+        console.error('Search failed:', error)
+    }
 })
 
-
-//
-// let isFav = true;
-
-// heart_icon.addEventListener('click', () => {
-//     console.log('click')
-// })
-
-// function changeFav (isFav) {
-
-//     if(isFav==true) {
-//         heart_icon.setAttribute(`.imgs/heart-filled.svg`)
-//     } else {
-//         heart_icon.setAttribute(`.imgs/heart-not-filled.svg`)
-//     }
-// }
 
 
 
