@@ -1,22 +1,76 @@
 import { api_key } from "./key.js";
-const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
 
-async function getPopularMovies() {
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`
+const home_shortcut = document.querySelector('.title-h1');
+const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
+const search_btn = document.querySelector('.search-wrapper img');
+const input_field = document.querySelector('.search-wrapper input');
+
+search_btn.addEventListener('click', searchMovie)
+home_shortcut.addEventListener('click', homeMovies)
+
+//gets the event on the Enter key
+input_field.addEventListener('keyup', function(event) {
+    console.log(event.key)
+    if (event.keyCode == 13) {
+        searchMovie()
+        return
+    }
+})
+
+//do the searching, clears the movie wrapper, calls the func that searches the movies 
+//and passes the results to the render function
+async function searchMovie() {
+    const search_string = input_field.value
+    if (search_string != '') {
+        clearAllMovies()
+        const movies = await getSearchedMovies(search_string)
+        movies.forEach(movie => moviesRender(movie))
+    } else {
+        alert('Query error')
+    }
+}
+
+//this its actioned when the user clicks on the h1
+async function homeMovies() {
+    clearAllMovies()
+    const movies = await getPopularMovies()
+    movies.forEach(movie => moviesRender(movie))
+    
+}
+
+//effectively does the searching with the 'search_string' from the input
+async function getSearchedMovies(search_string) {
+    const url = `https://api.themoviedb.org/3/search/movie?query=${search_string}&api_key=${api_key}&language=en-US&page=1`
     const fetchResponse = await fetch(url);
     const {results} = await fetchResponse.json();
     
     return results
-    console.log (results);
 }
 
-getPopularMovies()
+//cleans the movie wrapper
+function clearAllMovies() {
+    moviesWrapper.innerHTML = ''
+}
 
+//shows the most popular movies. its what the user sees when the page loads
+async function getPopularMovies() {
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&include_adult=false&language=en-US&page=1`
+    
+    const fetchResponse = await fetch(url);
+    const {results} = await fetchResponse.json();
+    
+    return results
+    
+}
+
+//secures that getPopularMovies is called exactly when the page loads
 window.onload = async function() {
     const movies = await getPopularMovies();
+    
     movies.forEach(movie => moviesRender(movie))
 }
 
+//renders the movies with the results of the APIs
 function moviesRender(movie) {
     const {title, poster_path, vote_average, release_date, overview} = movie; //deestrutura o objeto movie que vem da api
     const isFavorited = false;
@@ -92,3 +146,7 @@ function moviesRender(movie) {
     movieInformations.appendChild(descriptionElement); //description-wrapper dentro do movie-element;
 
 }
+
+
+
+

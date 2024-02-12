@@ -46,6 +46,8 @@ body {
 
     margin-top: 1em;
     margin-bottom: 2em;
+
+    cursor: pointer;
 }
 
 /* Search Field*/
@@ -225,4 +227,22 @@ this comment it's connected to the Movie Div and it's elements. */
     font-style: normal;
     font-weight: 500;
     line-height: 177.023%; /* 31.864px */
+}
+
+
+@media only screen and (max-width: 920px) {
+    .movie-container {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+        width: 50em;
+    }
+
+    .info-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 0em 0em 1em;
+    }
+
 }
