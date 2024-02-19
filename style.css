@@ -50,6 +50,10 @@ body {
     cursor: pointer;
 }
 
+.title-h1:hover {
+    color: #706EA8;
+}
+
 /* Search Field*/
 
 .search-wrapper {

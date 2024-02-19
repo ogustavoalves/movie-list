@@ -8,11 +8,21 @@ const input_field = document.querySelector('.search-wrapper input');
 search_btn.addEventListener('click', searchMovie)
 home_shortcut.addEventListener('click', homeMovies)
 
+
 //gets the event on the Enter key
 input_field.addEventListener('keyup', function(event) {
-    console.log(event.key)
+    // console.log(event.key)
     if (event.keyCode == 13) {
         searchMovie()
+        return
+    }
+})
+
+//it's go back to the home page when ESC it's pressed
+input_field.addEventListener('keyup', function(event) {
+    
+    if (event.keyCode == 27) {
+        homeMovies()
         return
     }
 })
@@ -109,7 +119,7 @@ function moviesRender(movie) {
     
     const statsWrapper =  document.createElement('div');
 
-    //container star & heart
+    //container star icon & heart button
     statsWrapper.classList.add('stats-wrapper');
     movieInformations.appendChild(statsWrapper); //stats-wrapper dentro do info-wrapper
     //rating (star)
@@ -146,7 +156,3 @@ function moviesRender(movie) {
     movieInformations.appendChild(descriptionElement); //description-wrapper dentro do movie-element;
 
 }
-
-
-
-
