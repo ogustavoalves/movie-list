@@ -4,6 +4,7 @@ const home_shortcut = document.querySelector('.title-h1');
 const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
 const search_btn = document.querySelector('.search-wrapper img');
 const input_field = document.querySelector('.search-wrapper input');
+const heart_btn = document.querySelector('.heart-container img')
 
 search_btn.addEventListener('click', searchMovie)
 home_shortcut.addEventListener('click', homeMovies)
@@ -73,6 +74,47 @@ async function getPopularMovies() {
     
 }
 
+function heartButtonPressed (event, movie){
+    const favoriteTxt = document.querySelector('.heart-container p')
+    const favoritedState = {
+        favorited: 'imgs/heart-filled.svg',
+        notFavorited: 'imgs/heart-not-filled.svg'
+    }
+
+    if (event.target.src.includes(favoritedState.notFavorited)) {
+        event.target.src = favoritedState.favorited;
+        favoriteTxt.innerHTML = 'Desfavoritar'
+        saveToLocalStorage(movie);
+    } else {
+        event.target.src = favoritedState.notFavorited;
+        favoriteTxt.innerHTML = 'Favoritar'
+        removeFromLocalStorage(movie.id);
+    }
+}
+
+function getFavoritedMovies() {
+    return JSON.parse(localStorage.getItem('favoritedMovies'))
+}
+
+function checkMovieIsFavorited(id) {
+    const movies = getFavoritedMovies() || [];
+    return movies.find(movie => movie.id == id)
+}
+
+function saveToLocalStorage(movie) {
+    const movies = getFavoritedMovies() || [];
+    movies.push(movie);
+    const moviesJSON = JSON.stringify(movies)
+    localStorage.setItem('favoriteMovies', moviesJSON)
+}
+
+function removeFromLocalStorage(id){
+    const movies = getFavoritedMovies() || []
+    const findMovie = movies.find(movie => movie.id == id)
+    const newMovies = movies.filter(movie => movie.id != findMovie.id)
+    localStorage.setItem('favoriteMovies', JSON.stringify(newMovies))
+}
+
 //secures that getPopularMovies is called exactly when the page loads
 window.onload = async function() {
     const movies = await getPopularMovies();
@@ -82,8 +124,8 @@ window.onload = async function() {
 
 //renders the movies with the results of the APIs
 function moviesRender(movie) {
-    const {title, poster_path, vote_average, release_date, overview} = movie; //deestrutura o objeto movie que vem da api
-    const isFavorited = false;
+    const {id, title, poster_path, vote_average, release_date, overview} = movie; //deestrutura o objeto movie que vem da api
+    const isFavorited = checkMovieIsFavorited(id);
 
     
     const date = new Date(release_date)
@@ -143,6 +185,8 @@ function moviesRender(movie) {
     const heartImage =  document.createElement('img');
     heartImage.src = isFavorited ? 'imgs/heart-filled.svg' : 'imgs/heart-not-filled.svg';
     heartImage.alt = 'Heart';
+    heartImage.classList.add('heartImage');
+    heartImage.addEventListener('click', (event) => heartButtonPressed(event, movie));
     const favText = document.createElement('p');
     favText.innerHTML = 'Favoritar';
     heartContainer.appendChild(heartImage)
@@ -156,3 +200,5 @@ function moviesRender(movie) {
     movieInformations.appendChild(descriptionElement); //description-wrapper dentro do movie-element;
 
 }
+
+
