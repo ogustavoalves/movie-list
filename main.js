@@ -4,11 +4,19 @@ const home_shortcut = document.querySelector('.title-h1');
 const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
 const search_btn = document.querySelector('.search-wrapper img');
 const input_field = document.querySelector('.search-wrapper input');
-const heart_btn = document.querySelector('.heart-container img')
+const checkbox_input = document.querySelector('.checkbox-wrapper .checkbox-input')
 
 search_btn.addEventListener('click', searchMovie)
 home_shortcut.addEventListener('click', homeMovies)
 
+checkbox_input.addEventListener('change', function(event) {
+    if(event.target.checked) {
+        
+
+    } else {
+        homeMovies()
+    }
+});
 
 //gets the event on the Enter key
 input_field.addEventListener('keyup', function(event) {
@@ -55,6 +63,7 @@ async function getSearchedMovies(search_string) {
     const fetchResponse = await fetch(url);
     const {results} = await fetchResponse.json();
     
+    
     return results
 }
 
@@ -69,13 +78,16 @@ async function getPopularMovies() {
     
     const fetchResponse = await fetch(url);
     const {results} = await fetchResponse.json();
-    
+
+    console.log(results)
     return results
     
 }
 
 function heartButtonPressed (event, movie){
-    const favoriteTxt = document.querySelector('.heart-container p')
+    const heartContainer = event.target.closest('.heart-container');
+    const favoriteTxt = heartContainer.querySelector('p');
+
     const favoritedState = {
         favorited: 'imgs/heart-filled.svg',
         notFavorited: 'imgs/heart-not-filled.svg'
@@ -83,17 +95,17 @@ function heartButtonPressed (event, movie){
 
     if (event.target.src.includes(favoritedState.notFavorited)) {
         event.target.src = favoritedState.favorited;
-        favoriteTxt.innerHTML = 'Desfavoritar'
+        favoriteTxt.textContent = 'Desfavoritar'
         saveToLocalStorage(movie);
     } else {
         event.target.src = favoritedState.notFavorited;
-        favoriteTxt.innerHTML = 'Favoritar'
+        favoriteTxt.textContent = 'Favoritar'
         removeFromLocalStorage(movie.id);
     }
 }
 
 function getFavoritedMovies() {
-    return JSON.parse(localStorage.getItem('favoritedMovies'))
+    return JSON.parse(localStorage.getItem('favoriteMovies'))
 }
 
 function checkMovieIsFavorited(id) {
@@ -114,6 +126,8 @@ function removeFromLocalStorage(id){
     const newMovies = movies.filter(movie => movie.id != findMovie.id)
     localStorage.setItem('favoriteMovies', JSON.stringify(newMovies))
 }
+
+getFavoritedMovies()
 
 //secures that getPopularMovies is called exactly when the page loads
 window.onload = async function() {
@@ -188,7 +202,7 @@ function moviesRender(movie) {
     heartImage.classList.add('heartImage');
     heartImage.addEventListener('click', (event) => heartButtonPressed(event, movie));
     const favText = document.createElement('p');
-    favText.innerHTML = 'Favoritar';
+    favText.textContent = isFavorited ? 'Desfavoritar' : 'Favoritar';
     heartContainer.appendChild(heartImage)
     heartContainer.appendChild(favText);
     statsWrapper.appendChild(heartContainer)
