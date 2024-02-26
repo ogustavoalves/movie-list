@@ -218,6 +218,7 @@ this comment it's connected to the Movie Div and it's elements. */
 }
 
 .heart-container img {
+    margin-top: 0.12em;
     cursor: pointer;
 }
 
