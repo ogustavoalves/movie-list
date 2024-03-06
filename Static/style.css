@@ -1,7 +1,7 @@
 :root {
     --cor-fundo: #17162E;
     --cor-fonte: #FFF;
-    
+    --cor-active: #706EA8;
   }
 
   html, body, div, span, applet, object, iframe,
@@ -36,9 +36,28 @@ body {
     font-family: "Kumbh Sans";
 }
 
+::-webkit-scrollbar {
+    background-color: #1D1C3B;
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-active);
+    
+    border-radius: 3px;
+    height: 7em;
+
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #FFF;
+}
+
+
+
 .title-h1 {
     font-size: 2em;
-    color: #FFF;
+    color: var(--cor-fonte);
 
     font-style: normal;
     font-weight: 600;
@@ -51,7 +70,7 @@ body {
 }
 
 .title-h1:hover {
-    color: #706EA8;
+    color: var(--cor-active);
 }
 
 /* Search Field*/
@@ -90,7 +109,7 @@ body {
 }
 
 .search-input {
-    color: #FFF;
+    color: var(--cor-fonte);
     font-size: 18px;
     font-weight: 500;
     
@@ -110,7 +129,7 @@ body {
 /*Box stylization*/
 .checkbox-input {
     -webkit-appearance: none;
-	border:  2px solid #706EA8;
+	border:  2px solid var(--cor-active);
 	padding: 9px;
 	border-radius: 4px;
 	margin: 0px;
@@ -120,15 +139,15 @@ body {
 
 /*Box stylization when Checked*/
 .checkbox-input:checked {
-    background: #706EA8;
+    background: var(--cor-active);
     
-	border:  2px solid #706EA8;
+	border:  2px solid var(--cor-active);
 	color: #99a1a7;
 }
 
 /*Check mark stylization*/
 .checkbox-input:checked:after {
-    background: #706EA8;
+    background: var(--cor-active);
     content: '\2714';
 	font-size: 14px;
 	position: absolute;
