@@ -1,4 +1,4 @@
-import { api_key } from "./key.js";
+import { api_key } from "../Script/key.js";
 
 const home_shortcut = document.querySelector('.title-h1');
 const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
@@ -9,9 +9,11 @@ const checkbox_input = document.querySelector('.checkbox-wrapper .checkbox-input
 search_btn.addEventListener('click', searchMovie)
 home_shortcut.addEventListener('click', homeMovies)
 
+
+//waits for changes on the checkbox
 checkbox_input.addEventListener('change', function(event) {
     if(event.target.checked) {
-        
+        getsOnlyFavoritedMovies();
 
     } else {
         homeMovies()
@@ -79,9 +81,16 @@ async function getPopularMovies() {
     const fetchResponse = await fetch(url);
     const {results} = await fetchResponse.json();
 
-    console.log(results)
+    // console.log(results)
     return results
     
+}
+
+function getsOnlyFavoritedMovies () {
+    clearAllMovies();
+    
+    const movies = getFavoritedMovies();
+    movies.forEach(movie => moviesRender(movie))
 }
 
 function heartButtonPressed (event, movie){
@@ -105,6 +114,7 @@ function heartButtonPressed (event, movie){
 }
 
 function getFavoritedMovies() {
+    // console.log(JSON.parse(localStorage.getItem('favoriteMovies')))
     return JSON.parse(localStorage.getItem('favoriteMovies'))
 }
 
