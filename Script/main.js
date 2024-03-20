@@ -98,8 +98,8 @@ function heartButtonPressed (event, movie){
     const favoriteTxt = heartContainer.querySelector('p');
 
     const favoritedState = {
-        favorited: 'imgs/heart-filled.svg',
-        notFavorited: 'imgs/heart-not-filled.svg'
+        favorited: 'Static/imgs/heart-filled.svg',
+        notFavorited: 'Static/imgs/heart-not-filled.svg'
     }
 
     if (event.target.src.includes(favoritedState.notFavorited)) {
@@ -194,7 +194,7 @@ function moviesRender(movie) {
     
 
     const starImage =  document.createElement('img');
-    starImage.src = 'imgs/Star.svg';
+    starImage.src = 'Static/imgs/Star.svg';
     starImage.alt = 'Star';
     starContainer.appendChild(starImage); //Star image dentro do star-container
 
@@ -207,7 +207,7 @@ function moviesRender(movie) {
     const heartContainer =  document.createElement('span');
     heartContainer.classList.add('heart-container');
     const heartImage =  document.createElement('img');
-    heartImage.src = isFavorited ? 'imgs/heart-filled.svg' : 'imgs/heart-not-filled.svg';
+    heartImage.src = isFavorited ? 'Static/imgs/heart-filled.svg' : 'Static/imgs/heart-not-filled.svg';
     heartImage.alt = 'Heart';
     heartImage.classList.add('heartImage');
     heartImage.addEventListener('click', (event) => heartButtonPressed(event, movie));
