@@ -51,11 +51,16 @@ async function searchMovie() {
     }
 }
 
+const apiKey = process.env.API_KEY;
+console.log(apiKey);
+
 //this its actioned when the user clicks on the h1
 async function homeMovies() {
     clearAllMovies()
-    const apiKey = process.env.API_KEY;
-    console.log(apiKey);
+
+    
+    
+
     const movies = await getPopularMovies()
     movies.forEach(movie => moviesRender(movie))
 
