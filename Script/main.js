@@ -71,7 +71,7 @@ async function homeMovies() {
 
 //effectively does the searching with the 'search_string' from the input
 async function getSearchedMovies(search_string) {
-    const url = `https://api.themoviedb.org/3/search/movie?query=${search_string}&api_key=${process.env.API_KEY}&language=en-US&page=1`
+    const url = `https://api.themoviedb.org/3/search/movie?query=${search_string}&api_key=${apiKey}&language=en-US&page=1`
     const fetchResponse = await fetch(url);
     const {results} = await fetchResponse.json();
     
@@ -86,7 +86,7 @@ function clearAllMovies() {
 
 //shows the most popular movies. its what the user sees when the page loads
 async function getPopularMovies() {
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&include_adult=false&language=en-US&page=1`
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&include_adult=false&language=en-US&page=1`
     
     const fetchResponse = await fetch(url);
     const {results} = await fetchResponse.json();
