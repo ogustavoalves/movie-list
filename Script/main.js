@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+const apiKey = process.env.API_KEY;
 
 
 const home_shortcut = document.querySelector('.title-h1');
@@ -51,8 +54,7 @@ async function searchMovie() {
     }
 }
 
-const apiKey = process.env.API_KEY;
-console.log(apiKey);
+
 
 //this its actioned when the user clicks on the h1
 async function homeMovies() {
