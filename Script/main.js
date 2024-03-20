@@ -54,10 +54,12 @@ async function searchMovie() {
 //this its actioned when the user clicks on the h1
 async function homeMovies() {
     clearAllMovies()
-    const movies = await getPopularMovies()
-    movies.forEach(movie => moviesRender(movie))
     const apiKey = process.env.API_KEY;
     console.log(apiKey);
+    const movies = await getPopularMovies()
+    movies.forEach(movie => moviesRender(movie))
+
+    
 }
 
 //effectively does the searching with the 'search_string' from the input
