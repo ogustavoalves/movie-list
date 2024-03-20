@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-const apiKey = ;
-
 
 const home_shortcut = document.querySelector('.title-h1');
 const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
