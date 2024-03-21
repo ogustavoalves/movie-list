@@ -1,6 +1,5 @@
 import { api_key } from "./key.js";
 
-
 const home_shortcut = document.querySelector('.title-h1');
 const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
 const search_btn = document.querySelector('.search-wrapper img');
