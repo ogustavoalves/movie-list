@@ -1,4 +1,5 @@
-import { api_key } from "../Script/key.js";
+import { api_key } from "./key.js";
+
 
 const home_shortcut = document.querySelector('.title-h1');
 const moviesWrapper = document.querySelector('.movies-wrapper'); //pega a div que conterá todos os filmes
@@ -51,11 +52,18 @@ async function searchMovie() {
     }
 }
 
+
+
 //this its actioned when the user clicks on the h1
 async function homeMovies() {
     clearAllMovies()
+
+    
+    
+
     const movies = await getPopularMovies()
     movies.forEach(movie => moviesRender(movie))
+
     
 }
 
